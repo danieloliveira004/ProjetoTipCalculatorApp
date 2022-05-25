@@ -1,15 +1,193 @@
+.logo {
+  max-width: 850px;
+  width: 100%;
+  text-align: center;
+  padding-bottom: 1.5em;
+}
+
 .container-app {
   background-color: $white;
-  max-width: 800px;
+  max-width: 850px;
   width: 100%;
   border-radius: 25px;
   padding: 1.5em;
+  // GRID
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2em;
 }
 
 p {
-  font-size: .6em;
+  font-size: 0.7em;
+  padding-bottom: 1em;
 }
 
 input {
   background-color: $very-grayish-cyan;
+  color: $dark-cyan;
+  @include SpaceMono;
+  font-size: 0.9em;
+  
+  &::placeholder {
+    color: $grayish-cyan;
+  }
+}
+
+#bill {
+  position: relative;
+  svg {
+    @include SvgInputs;
+  }
+  input {
+    @include Input;
+  }
+}
+
+.bill-container {
+  padding-bottom: 2em;
+}
+
+// OPTIONS
+#options {
+  //GRID
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: .5em;
+  padding-bottom: 2em;
+  
+  div:not(#custom) {
+    background: $dark-cyan;
+    color: $white;
+    width: 100%;
+    padding: .5em 0;
+    border-radius: 5px;
+    text-align: center;
+    transition-duration: .4s;
+    cursor: pointer;
+    
+    &:hover {
+      background: $strong-cyan;
+      color: $dark-cyan;
+    }
+
+    &.active {
+      background: $strong-cyan;
+      color: $dark-cyan;
+    }
+  }
+}
+
+// CUSTOM
+#custom {
+  input {
+    padding: .4em .5em;
+    width: 100%;
+    border-radius: 5px;
+    text-align: right;
+    border-radius: .2em;
+    border: 2px solid transparent;
+
+    &::placeholder {text-align: center;}
+
+    &:focus {
+      transition-duration: .8s;
+      border-color: $strong-cyan;
+    }
+    }
+}
+
+// NUMBER OF PEOPLES
+#peoples {
+  position: relative;
+  input {
+    @include Input;
+    &.cantZero {
+      border-color: $red !important;
+    }
+  }
+  svg {
+    @include SvgInputs;
+  }
+}
+
+.container-peoples {
+  p {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.error {
+  opacity: 0;
+  display: flex;
+  align-items: flex-end;
+  color: $red;
+  font-size: .8em;
+  transition-duration: .4s;
+}
+
+// RESULTS
+.container-result {
+  position: relative;
+  background: $dark-cyan;
+  padding: 1.5em;
+  border-radius: .5em;
+  min-height: 220px;
+  
+  p {
+    color: $white;
+    padding-bottom: 0;
+    line-height: .8em;
+  }
+
+  span {
+    font-size: .6em;
+  }
+}
+
+.container-resultsTip {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: .5em;
+  width: 100%;
+  padding-bottom: 2em;
+}
+
+#tipAmount, #totalPerson {
+  text-align: right;
+  span {
+    font-size: 1.6em;
+    line-height: .6em;
+    color: $strong-cyan;
+  }
+}
+
+// RESET
+.container-reset {
+  position: absolute;
+  bottom: 1.5em;
+  left: 1.5em; right: 1.5em;
+
+  button {
+    background: $strong-cyan;
+    color: $dark-cyan;
+    opacity: .3;
+    cursor: pointer;
+    width: 100%;
+    padding: .2em 0;
+    border-radius: .2em;
+    font-size: 1em;
+    text-transform: uppercase;
+    transition-duration: .4s;
+    @include SpaceMono;
+
+    &.clickable {
+      opacity: 1;
+      
+      &:hover {
+        background: $light-grayish-cyan;
+      }
+    }
+  }
 }

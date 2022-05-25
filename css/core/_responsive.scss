@@ -1,0 +1,33 @@
+@media (max-width: 800px) {
+  p {
+    font-size: .6em;
+  }
+
+  // CONTAINER APP 
+  .container-app {
+    display: block;
+  }
+
+  // PEOPLES 
+  #peoples {margin-bottom: 2em;}
+  
+  // CONTAINER RESULT
+  .container-result p {font-size: .6em;}
+
+  #tipAmount, #totalPerson {
+    span {
+      font-size: 1.4em;
+    }
+  }
+}
+
+@media (max-width: 400px) {
+  body {
+    font-size: 18px;
+  }
+  //OPTIONS
+  #options {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+}

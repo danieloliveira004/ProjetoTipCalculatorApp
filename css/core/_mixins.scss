@@ -1,0 +1,28 @@
+ // FONT 
+@mixin SpaceMono {
+  font-family: 'Space Mono', monospace;
+  font-weight: 700;
+}
+
+// INPUTS
+@mixin Input {
+  height: 40px;
+  width: 100%;
+  text-align: right;
+  padding-left: 2em;
+  padding-right: .5em;
+  border-radius: .2em;
+  border: 2px solid transparent;
+  &:focus {
+    transition-duration: .8s;
+    border-color: $strong-cyan;
+  }
+}
+
+// SVG INPUTS
+@mixin SvgInputs {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: .5em;
+}

@@ -68,20 +68,244 @@ body {
   font-weight: 700;
   font-size: 24px;
   background-color: #c5e4e7;
+  color: #5e7a7d;
+  min-height: 100vh;
+  padding: 1.5em 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo {
+  max-width: 850px;
+  width: 100%;
+  text-align: center;
+  padding-bottom: 1.5em;
 }
 
 .container-app {
   background-color: white;
-  max-width: 800px;
+  max-width: 850px;
   width: 100%;
   border-radius: 25px;
   padding: 1.5em;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2em;
 }
 
 p {
-  font-size: .6em;
+  font-size: 0.7em;
+  padding-bottom: 1em;
 }
 
 input {
   background-color: #f4fafa;
+  color: #00494d;
+  font-family: 'Space Mono', monospace;
+  font-weight: 700;
+  font-size: 0.9em;
+}
+input::placeholder {
+  color: #7f9c9f;
+}
+
+#bill {
+  position: relative;
+}
+#bill svg {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: .5em;
+}
+#bill input {
+  height: 40px;
+  width: 100%;
+  text-align: right;
+  padding-left: 2em;
+  padding-right: .5em;
+  border-radius: .2em;
+  border: 2px solid transparent;
+}
+#bill input:focus {
+  transition-duration: .8s;
+  border-color: #26c0ab;
+}
+
+.bill-container {
+  padding-bottom: 2em;
+}
+
+#options {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: .5em;
+  padding-bottom: 2em;
+}
+#options div:not(#custom) {
+  background: #00494d;
+  color: white;
+  width: 100%;
+  padding: .5em 0;
+  border-radius: 5px;
+  text-align: center;
+  transition-duration: .4s;
+  cursor: pointer;
+}
+#options div:not(#custom):hover {
+  background: #26c0ab;
+  color: #00494d;
+}
+#options div:not(#custom).active {
+  background: #26c0ab;
+  color: #00494d;
+}
+
+#custom input {
+  padding: .4em .5em;
+  width: 100%;
+  border-radius: 5px;
+  text-align: right;
+  border-radius: .2em;
+  border: 2px solid transparent;
+}
+#custom input::placeholder {
+  text-align: center;
+}
+#custom input:focus {
+  transition-duration: .8s;
+  border-color: #26c0ab;
+}
+
+#peoples {
+  position: relative;
+}
+#peoples input {
+  height: 40px;
+  width: 100%;
+  text-align: right;
+  padding-left: 2em;
+  padding-right: .5em;
+  border-radius: .2em;
+  border: 2px solid transparent;
+}
+#peoples input:focus {
+  transition-duration: .8s;
+  border-color: #26c0ab;
+}
+#peoples input.cantZero {
+  border-color: #ec4646 !important;
+}
+#peoples svg {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: .5em;
+}
+
+.container-peoples p {
+  display: flex;
+  justify-content: space-between;
+}
+
+.error {
+  opacity: 0;
+  display: flex;
+  align-items: flex-end;
+  color: #ec4646;
+  font-size: .8em;
+  transition-duration: .4s;
+}
+
+.container-result {
+  position: relative;
+  background: #00494d;
+  padding: 1.5em;
+  border-radius: .5em;
+  min-height: 220px;
+}
+.container-result p {
+  color: white;
+  padding-bottom: 0;
+  line-height: .8em;
+}
+.container-result span {
+  font-size: .6em;
+}
+
+.container-resultsTip {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: .5em;
+  width: 100%;
+  padding-bottom: 2em;
+}
+
+#tipAmount, #totalPerson {
+  text-align: right;
+}
+#tipAmount span, #totalPerson span {
+  font-size: 1.6em;
+  line-height: .6em;
+  color: #26c0ab;
+}
+
+.container-reset {
+  position: absolute;
+  bottom: 1.5em;
+  left: 1.5em;
+  right: 1.5em;
+}
+.container-reset button {
+  background: #26c0ab;
+  color: #00494d;
+  opacity: .3;
+  cursor: pointer;
+  width: 100%;
+  padding: .2em 0;
+  border-radius: .2em;
+  font-size: 1em;
+  text-transform: uppercase;
+  transition-duration: .4s;
+  font-family: 'Space Mono', monospace;
+  font-weight: 700;
+}
+.container-reset button.clickable {
+  opacity: 1;
+}
+.container-reset button.clickable:hover {
+  background: #c5e4e7;
+}
+
+@media (max-width: 800px) {
+  p {
+    font-size: .6em;
+  }
+
+  .container-app {
+    display: block;
+  }
+
+  #peoples {
+    margin-bottom: 2em;
+  }
+
+  .container-result p {
+    font-size: .6em;
+  }
+
+  #tipAmount span, #totalPerson span {
+    font-size: 1.4em;
+  }
+}
+@media (max-width: 400px) {
+  body {
+    font-size: 18px;
+  }
+
+  #options {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
