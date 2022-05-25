@@ -71,7 +71,7 @@ function Calculate() {
         tip_amount = (person * tip_value / 100);
       
       tipAmount.innerHTML = '$' + tip_amount.toFixed(2);  
-      total = person - tip_amount;
+      total = person + tip_amount;
       Show(total, 'total');
     }
     else if (peoples.value != '') {
